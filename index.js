@@ -50,8 +50,9 @@ function getAllMovieTitles(movies) {
 function getHighestMetascore(movies) {
   let result = 0;
   for (let i = 0; i < movies.length; i++){
-    if (movies[i].metascore > result){
-      result = Number(movies[i].metascore)
+    let score = movies[i].metascore
+    if (score > result){
+      result = Number(score)
     }
   }
   return result
@@ -94,7 +95,6 @@ function getAverageIMDBRating(movies) {
  */
 function countByRating(movies) {
   let result = {};
-  let rating = 0;
   let ratingName = '';
     if (movies.length === 0) {
       return result;
@@ -135,6 +135,7 @@ function findById(movies, id) {
       result = movies[i]
     }
   }
+//the line of code below is meant solve the other error but im sure there is a better way of handling this
 if (Object.keys(result).length === 0){
   return null
 }
